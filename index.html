@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rafael Dernichanian Calegari | Consórcio Ademicon — Sorocaba, Votorantim e região</title>
+<meta name="description" content="Simule seu consórcio de imóveis, veículos ou serviços com Rafael Dernichanian Calegari, consultor licenciado Ademicon em Sorocaba, Votorantim e região. Sem juros e com parcelas que cabem no bolso.">
+<!-- Link de revisão: impede que o Google indexe esta versão.
+     REMOVA esta linha quando a página for publicada no domínio definitivo. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   CONFIG RAPIDA — LP Rafael Dernichanian Calegari (Ademicon Sorocaba, Votorantim e regiao)
+   - Cores/tipografia: variaveis :root abaixo
+   - Contatos do consultor: secao .consultor (ja preenchidos)
+   - WhatsApp: constante WHATSAPP no <script> do final (5511984083985)
+   - Faltam apenas IMAGENS: procure por [A PREENCHER] no HTML
+   =========================================================== */
+:root{
+  --red:#EE3124;
+  --red-dark:#B10006;
+  --red-deep:#7C0004;
+  --ink:#1F1F1F;
+  --gray:#737373;
+  --gray-2:#F5F5F5;
+  --container:1180px;
+  --shadow:0 18px 50px rgba(0,0,0,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select{font-family:inherit}
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);font-weight:600;margin-bottom:10px}
+h2.title{font-size:clamp(26px,3.6vw,40px);font-weight:700;line-height:1.15;margin-bottom:20px}
+.lead{color:#4a4a4a;font-size:16px;line-height:1.75;margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;border-radius:999px;font-weight:600;transition:.2s}
+.btn-red{background:var(--red);color:#fff;padding:14px 30px;font-size:15px;box-shadow:0 10px 24px rgba(238,49,36,.28)}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid var(--red);color:var(--red);padding:11px 26px;font-size:14px;background:transparent}
+.btn-ghost:hover{background:var(--red);color:#fff}
+
+/* ---------- HEADER ---------- */
+.header{position:sticky;top:0;z-index:60;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.07)}
+.header .container{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:40px;width:auto;flex:none}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;background:#111;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+   radial-gradient(900px 500px at 28% 48%, rgba(125,125,135,.5), transparent 65%),
+   linear-gradient(115deg,#151515 0%,#26262b 45%,#0d0d0d 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.5px, transparent 1.6px);background-size:26px 26px;opacity:.6}
+.hero .container{position:relative;z-index:2;display:grid;grid-template-columns:1fr 400px;gap:50px;align-items:center;padding:70px 20px;min-height:560px}
+/* Banner oficial: no desktop ele ja traz o titulo, o selo e o texto legal "queimados" na arte,
+   entao o bloco de texto vira sr-only (fica para SEO/leitor de tela, sem duplicar visualmente). */
+.hero-art{display:none}
+/* Só a partir de 1100px a arte fica alta o bastante para caber o card do simulador
+   sem cortar nada do banner. Abaixo disso volta o hero com texto vivo sobre fundo escuro. */
+@media (min-width:1100px){
+  .hero-bg{display:none}
+  .hero-art{display:block;width:100%;height:auto}
+  .hero .container{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--container);min-height:0;padding:24px 20px}
+  .hero-copy{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+  /* .hero-copy saiu do fluxo do grid, entao o card precisa ser fixado na 2a coluna */
+  .hero .sim{grid-column:2}
+}
+.hero-badge{width:106px;height:106px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:26px}
+.hero-badge img{width:74px;height:auto}
+.hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:800;line-height:1.03;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;display:block}
+.hero p.sub{margin-top:22px;font-size:17px;color:#e6e6e6;max-width:520px}
+.hero .legal-hero{margin-top:34px;font-size:9.5px;color:#9a9a9a;max-width:640px;line-height:1.5}
+
+/* ---------- SIMULADOR ---------- */
+.sim{background:#fff;color:var(--ink);border-radius:18px;padding:30px 26px;box-shadow:var(--shadow)}
+.sim h3{color:var(--red);font-size:17px;font-weight:700;text-align:center;line-height:1.35;margin-bottom:22px}
+.sim .lbl{display:block;text-align:center;font-size:14px;font-weight:500;margin:18px 0 10px}
+.sim select{width:100%;height:46px;border:1px solid #e2e2e2;border-radius:10px;padding:0 14px;font-size:14px;color:#555;background:#fff;appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23888' stroke-width='2'><path d='M4 6l4 4 4-4'/></svg>");
+  background-repeat:no-repeat;background-position:right 14px center}
+.sim select:focus{outline:none;border-color:var(--red)}
+.toggle{display:grid;grid-template-columns:1fr 1fr;background:#f2f2f2;border-radius:10px;padding:4px}
+.toggle button{border:0;background:transparent;padding:11px 0;border-radius:8px;font-size:14px;font-weight:500;color:#6b6b6b;cursor:pointer;transition:.2s}
+.toggle button.on{background:var(--red);color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(238,49,36,.3)}
+.sim-value{text-align:center;font-size:30px;font-weight:700;margin:6px 0 14px}
+.sim-value small{font-size:16px;font-weight:600}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#eee;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid #fff}
+.range-ends{display:flex;justify-content:space-between;font-size:11px;color:#8a8a8a;margin-top:8px}
+.sim .btn-red{width:100%;margin-top:22px;text-transform:uppercase;letter-spacing:.06em;font-size:14px;padding:16px}
+
+/* ---------- CONSULTOR ---------- */
+.consultor{padding:76px 0}
+.consultor .grid{display:grid;grid-template-columns:230px 1fr 230px;gap:40px;align-items:start}
+.foto{width:100%;aspect-ratio:1/1;border-radius:14px;object-fit:cover;object-position:center;background:#e9e9ec}
+.consultor h2{color:var(--red);font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.15;text-transform:uppercase;margin-bottom:18px}
+.consultor .sub{font-size:14px;font-weight:600;margin-bottom:16px}
+.contatos{list-style:none;display:grid;gap:12px}
+.contatos li{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:#3d3d3d;line-height:1.5}
+.contatos svg{width:17px;height:17px;flex:none;stroke:var(--red);fill:none;margin-top:2px}
+.contatos a:hover{color:var(--red)}
+.unidade{border:1px solid #e6e6e6;border-radius:12px;padding:22px 18px}
+.unidade span{font-size:13px;color:var(--gray);display:block;margin-bottom:22px}
+.unidade b{color:var(--red);font-size:15px;font-weight:700;letter-spacing:.01em;line-height:1.45;display:block;text-align:center}
+
+/* ---------- SPLIT / SECOES ---------- */
+.sec{padding:80px 0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.media{border-radius:14px;aspect-ratio:4/3;overflow:hidden;background:
+  radial-gradient(600px 300px at 70% 30%, rgba(255,255,255,.18), transparent 60%),
+  linear-gradient(135deg,var(--red-deep),var(--red-dark) 55%,#E0281C);
+  display:flex;align-items:flex-end;justify-content:center;color:rgba(255,255,255,.75);font-size:12px;padding:18px;text-align:center}
+/* recorte sem fundo: encosta na base do painel vermelho, como no original */
+.media img{width:100%;height:100%;object-fit:contain;object-position:bottom center}
+/* foto retangular comum: preenche o painel inteiro */
+.media-foto{padding:0;background:#e9e9ec}
+.media-foto img{object-fit:cover;object-position:center}
+
+/* ---------- COMO FUNCIONA ---------- */
+.como{background:linear-gradient(120deg,var(--red-deep),var(--red-dark) 45%,#D72318);color:#fff;padding:78px 0 90px;position:relative;overflow:hidden}
+.como::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 400px at 15% 0%, rgba(255,255,255,.14), transparent 60%)}
+.como .container{position:relative;z-index:2}
+.como h2{text-align:center;font-size:clamp(26px,3.4vw,36px);font-weight:700;margin-bottom:46px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{border-radius:14px;padding:22px;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;
+  background-image:linear-gradient(180deg,rgba(25,25,25,.2),rgba(12,12,12,.96)),linear-gradient(160deg,#5f5f5f,#2a2a2a)}
+.step .num{position:absolute;top:6px;left:14px;font-size:64px;font-weight:800;color:rgba(255,255,255,.16);line-height:1}
+.step h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.step p{font-size:13px;line-height:1.55;color:#d6d6d6}
+
+/* ---------- QUEM SOMOS ---------- */
+.bullets{list-style:none;display:grid;gap:18px}
+.bullets li{display:flex;gap:12px;font-size:14.5px;line-height:1.65;color:#3d3d3d}
+.bullets li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none;margin-top:9px}
+.bullets b{color:var(--red);font-weight:600}
+
+/* ---------- STATS ---------- */
+.stats{background:linear-gradient(100deg,var(--red-deep),var(--red-dark) 50%,#D72318);color:#fff;padding:34px 0}
+.stats .container{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.stat b{font-size:clamp(22px,2.6vw,30px);font-weight:800;display:block}
+.stat b sup{font-size:.6em}
+.stat span{font-size:11px;letter-spacing:.1em;font-weight:600;opacity:.95;display:block;margin-top:4px}
+
+/* ---------- FORMAS DE UTILIZACAO ---------- */
+.tabs{display:flex;gap:10px;margin-bottom:34px;flex-wrap:wrap}
+.tabs button{border:1px solid #e0e0e0;background:#fff;color:#6b6b6b;border-radius:999px;padding:9px 26px;font-size:14px;cursor:pointer;transition:.2s}
+.tabs button.on{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+.usos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.uso{border:1px solid #f0d5d3;border-radius:12px;padding:22px 16px;text-align:center;transition:.2s;background:#fff}
+.uso:hover{border-color:var(--red);box-shadow:0 10px 26px rgba(238,49,36,.12);transform:translateY(-3px)}
+.uso svg{width:32px;height:32px;stroke:var(--red);fill:none;margin:0 auto 12px}
+.uso span{font-size:13px;font-weight:500;line-height:1.35;display:block}
+.destaque{color:var(--red);font-weight:600}
+
+/* ---------- DUVIDAS ---------- */
+.duvidas{background:var(--gray-2);padding:72px 0;text-align:center}
+.duvidas h2{font-size:clamp(24px,3vw,34px);font-weight:700;margin-bottom:14px}
+.duvidas p{max-width:620px;margin:0 auto 26px;color:#4a4a4a;line-height:1.7}
+
+/* ---------- FOOTER ---------- */
+.footer{background:#1F1F1F;color:#d8d8d8;padding:56px 0 30px;font-size:13px}
+.footer .logo img{height:44px}
+.f-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid #333}
+.f-block h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:6px}
+.f-block p{line-height:1.7;color:#b5b5b5;margin-bottom:16px}
+.socials{display:flex;gap:10px;margin-top:22px}
+.socials a{width:34px;height:34px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;transition:.2s}
+.socials a:hover{background:var(--red-dark);transform:translateY(-2px)}
+.socials svg{width:16px;height:16px;stroke:#fff;fill:none}
+.f-badges{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:26px;padding:30px 0}
+.f-badges h5{font-size:11px;color:#fff;font-weight:600;margin-bottom:10px}
+.badge-box{background:rgba(255,255,255,.07);border-radius:8px;height:46px;display:flex;align-items:center;justify-content:center;color:#8f8f8f;font-size:10px;text-align:center;padding:6px}
+.legal{font-size:10.5px;color:#8a8a8a;line-height:1.7;padding-top:22px;border-top:1px solid #333}
+.legal strong{display:block;margin-top:12px;color:#b5b5b5;font-weight:500}
+
+/* ---------- WHATSAPP ---------- */
+.wa{position:fixed;right:22px;bottom:22px;z-index:80;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:.2s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width:980px){
+  .hero .container{grid-template-columns:1fr;padding:48px 20px 56px}
+  .consultor .grid{grid-template-columns:1fr;gap:26px}
+  .foto{max-width:220px}
+  .split{grid-template-columns:1fr;gap:32px}
+  .split.rev .media{order:-1}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .stats .container{grid-template-columns:repeat(2,1fr);gap:26px}
+  .f-top{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .steps{grid-template-columns:1fr}
+  .usos{grid-template-columns:1fr}
+  .header .container{height:64px}
+  .logo img{height:32px}
+  .sec,.consultor{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="header">
+  <div class="container">
+    <a href="#topo" class="logo">
+      <img src="logo-ademicon.png" alt="Ademicon — consórcio e investimento">
+    </a>
+    <a href="#" class="btn btn-ghost">Área do cliente</a>
+  </div>
+</header>
+
+<!-- ======================= HERO + SIMULADOR ======================= -->
+<section class="hero" id="topo">
+  <div class="hero-bg"></div>
+  <img class="hero-art" src="AP_MKT_003326_BANNER_HOME_SITE_ADEMICON_desktop-2.webp"
+       alt="Ademicon — o consórcio que mais cresce no Brasil. Dá pra ser crédito e investimento para cada vez mais brasileiros.">
+  <div class="container">
+    <div class="hero-copy">
+      <div class="hero-badge">
+        <img src="logo-ademicon-vertical-branco.png" alt="Ademicon — consórcio e investimento">
+      </div>
+      <h1><em>O consórcio</em><em>que mais</em><em>cresce</em><em>no Brasil.</em></h1>
+      <p class="sub">Dá pra ser crédito e investimento para cada vez mais brasileiros.</p>
+      <p class="legal-hero">Dados do Bacen de setembro de 2025, considerando o volume de créditos no mercado geral (geral: segmentos), entre as administradoras independentes de consórcio do Brasil.</p>
+    </div>
+
+    <form class="sim" id="simulador">
+      <h3>Você está perto de realizar o<br>seu projeto de vida.</h3>
+
+      <select id="segmento" aria-label="Escolha o segmento" required>
+        <option value="" disabled selected>Selecione um segmento</option>
+        <option value="Imóveis">Imóveis</option>
+        <option value="Veículos">Veículos</option>
+        <option value="Motos">Motos</option>
+        <option value="Serviços">Serviços</option>
+        <option value="Outros bens móveis">Outros bens móveis</option>
+      </select>
+
+      <span class="lbl">Escolha uma opção:</span>
+      <div class="toggle" id="toggle">
+        <button type="button" data-modo="parcela">Parcela</button>
+        <button type="button" data-modo="credito" class="on">Crédito</button>
+      </div>
+
+      <span class="lbl" id="lblValor">Escolha o valor do crédito:</span>
+      <div class="sim-value" id="valorTexto"></div>
+      <input type="range" id="slider" min="80000" max="1273442" step="1" value="676721" aria-label="Valor">
+      <div class="range-ends"><span id="minTxt"></span><span id="maxTxt"></span></div>
+
+      <button type="submit" class="btn btn-red">Simule seu consórcio</button>
+    </form>
+  </div>
+</section>
+
+<!-- ======================= CONSULTOR ======================= -->
+<section class="consultor" id="consultor">
+  <div class="container grid">
+    <img class="foto" src="rafael-calegari-card.jpg" alt="Rafael Dernichanian Calegari, consultor licenciado Ademicon">
+
+    <div>
+      <h2>Rafael Dernichanian<br>Calegari</h2>
+      <p class="sub">Entre em contato comigo:</p>
+      <ul class="contatos">
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <a href="mailto:rafael.calegari@autorizadoademicon.com.br">rafael.calegari@autorizadoademicon.com.br</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/></svg>
+          <a href="tel:+5511984083985">+55 (11) 98408-3985</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M20.5 3.5A10.4 10.4 0 0 0 3.6 15.9L2.5 21.5l5.7-1.1A10.4 10.4 0 1 0 20.5 3.5Z"/><path d="M8.4 8.1c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .6.4l.8 1.9c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8.9.8 1.7 1.1 2 1.2.2.1.4.1.6-.1l.7-.9c.2-.3.4-.2.6-.1l1.8.8c.2.1.4.2.4.4v.5c0 .5-.7 1.2-1.7 1.3-.6.1-1.3.2-2.6-.3-2.8-1.1-4.6-4-4.8-4.2-.1-.2-1-1.3-1-2.5 0-1.3.7-1.9.9-2.1Z"/></svg>
+          <a href="https://api.whatsapp.com/send?phone=5511984083985" target="_blank" rel="noopener">WhatsApp: +55 (11) 98408-3985</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span>Rua Júlia Martins Domingues, 1084 — Jardim Clarice — Votorantim/SP</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          <a href="https://www.instagram.com/rafael_nathalia_ademicon" target="_blank" rel="noopener">@rafael_nathalia_ademicon</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h3l1-4h-4V9.5A.5.5 0 0 1 14 9Z"/></svg>
+          <a href="https://facebook.com/rafael_dernichanian" target="_blank" rel="noopener">facebook.com/rafael_dernichanian</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg>
+          <a href="https://www.linkedin.com/in/rafael-dernichanian-calegari-66917b109" target="_blank" rel="noopener">Rafael Dernichanian Calegari</a>
+        </li>
+      </ul>
+    </div>
+
+    <aside class="unidade">
+      <span>Unidade:</span>
+      <b>SOROCABA, VOTORANTIM<br>E REGIÃO</b>
+    </aside>
+  </div>
+</section>
+
+<!-- ======================= SOBRE O SEGMENTO ======================= -->
+<section class="sec">
+  <div class="container split">
+    <div>
+      <p class="eyebrow">Sobre o segmento</p>
+      <h2 class="title">Você sabe o que é consórcio?</h2>
+      <p class="lead">É uma modalidade de compra que vai facilitar a realização de seus planos de vida e sem pagar nenhum juros. No consórcio, pessoas físicas e jurídicas se unem em grupos para aquisição de bens móveis, imóveis ou serviços.</p>
+      <p class="lead">Esses grupos são organizados por uma Administradora de Consórcios, autorizada e fiscalizada mensalmente pelo Banco Central do Brasil.</p>
+      <a href="#simulador" class="btn btn-red">Simule agora</a>
+    </div>
+    <div class="media"><img src="tadeu_banner201-1.webp" alt="Apresentador da campanha Ademicon com os braços abertos"></div>
+  </div>
+</section>
+
+<!-- ======================= COMO FUNCIONA ======================= -->
+<section class="como">
+  <div class="container">
+    <h2>Como funciona o consórcio?</h2>
+    <div class="steps">
+      <article class="step"><span class="num">01</span><h3>Escolha seu plano</h3><p>Diversas opções para você escolher aquela que melhor se adapta aos seus objetivos.</p></article>
+      <article class="step"><span class="num">02</span><h3>Pagamento das parcelas</h3><p>Parcelas que cabem no seu bolso, sem juros e com as condições previstas em contrato.</p></article>
+      <article class="step"><span class="num">03</span><h3>Assembleia</h3><p>Acompanhe os sorteios mensalmente ou ofereça lances em diferentes modalidades.</p></article>
+      <article class="step"><span class="num">04</span><h3>Hora da contemplação</h3><p>Ocorre por sorteio ou oferta de lances em diferentes modalidades.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= QUEM SOMOS ======================= -->
+<section class="sec">
+  <div class="container split rev">
+    <div>
+      <p class="eyebrow">Quem somos</p>
+      <h2 class="title">A Ademicon</h2>
+      <ul class="bullets">
+        <li><span><b>A maior administradora independente</b> de consórcio do Brasil em créditos ativos;</span></li>
+        <li><span>Estamos há mais de <b>30 anos</b> no mercado, atuando nos segmentos de imóveis, veículos e serviços;</span></li>
+        <li><span>Temos o CaaS (Consortium as a Service) em parceria com <b>grandes marcas</b>, de diversos segmentos;</span></li>
+        <li><span>São <b>264 unidades</b> distribuídas pelo Brasil, possibilitando a conquista planejada de imóveis, veículos e serviços.</span></li>
+      </ul>
+    </div>
+    <div class="media media-foto"><img src="sede-ademicon.webp" alt="Fachada de uma unidade Ademicon"></div>
+  </div>
+</section>
+
+<!-- ======================= STATS ======================= -->
+<section class="stats">
+  <div class="container">
+    <div class="stat"><b>288Mil<sup>+</sup></b><span>CLIENTES ATENDIDOS</span></div>
+    <div class="stat"><b>R$82Bi<sup>+</sup></b><span>CRÉDITOS COMERCIALIZADOS</span></div>
+    <div class="stat"><b>473Mil<sup>+</sup></b><span>COTAS COMERCIALIZADAS</span></div>
+    <div class="stat"><b>28marcas<sup>+</sup></b><span>ADMINISTRADAS</span></div>
+  </div>
+</section>
+
+<!-- ======================= FORMAS DE UTILIZACAO ======================= -->
+<section class="sec" id="segmentos">
+  <div class="container">
+    <div class="tabs" id="tabs">
+      <button class="on" data-tab="imoveis">Imóveis</button>
+      <button data-tab="veiculos">Veículos</button>
+      <button data-tab="servicos">Serviços</button>
+    </div>
+    <div class="split">
+      <div>
+        <p class="eyebrow">Formas de utilização</p>
+        <h2 class="title" id="tabTitulo"></h2>
+        <p class="lead" id="tabTexto"></p>
+        <p class="lead">Com a vantagem de <span class="destaque">não pagar juros</span>, essa é uma <span class="destaque">modalidade segura para realizar seu planejamento!</span></p>
+        <a href="#simulador" class="btn btn-red">Simule agora</a>
+      </div>
+      <div class="usos" id="usos"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= AINDA COM DUVIDAS ======================= -->
+<section class="duvidas">
+  <div class="container">
+    <h2>Ainda com dúvidas?</h2>
+    <p>Chegou até aqui e ainda está com dúvida? Contamos com uma equipe totalmente capacitada para te auxiliar no que for necessário. Simule agora e um consultor entrará em contato!</p>
+    <a href="#simulador" class="btn btn-red">Simular agora</a>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="f-top">
+      <div>
+        <div class="logo" style="margin-bottom:22px">
+          <img src="logo-ademicon-branco.png" alt="Ademicon — consórcio e investimento">
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/ademicon/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/ConsorcioAdemicon" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H8v4h2v6h4v-6h3l1-4h-4V9.5A.5.5 0 0 1 14 9Z"/></svg></a>
+          <a href="https://www.linkedin.com/company/ademicon/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+        </div>
+      </div>
+      <div class="f-block">
+        <h4>Telefone</h4>
+        <p>Atendimento para clientes e futuros clientes<br><strong style="color:#fff">(41) 3023-2000</strong></p>
+        <h4>Horário de atendimento</h4>
+        <p>Seg a Sex: 8h às 18h</p>
+      </div>
+      <div class="f-block">
+        <h4>E-mail para suporte:</h4>
+        <p>atendimento@ademicon.com.br</p>
+        <h4>Baixe o app e acompanhe seu consórcio:</h4>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <div class="badge-box" style="flex:1">App Store</div>
+          <div class="badge-box" style="flex:1">Google Play</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-badges">
+      <div><h5>Projetos Sociais:</h5><div class="badge-box">[A PREENCHER]</div></div>
+      <div><h5>Parcerias Homologadas:</h5><div class="badge-box">[A PREENCHER]</div></div>
+      <div><h5>Membro:</h5><div class="badge-box">ABAC</div></div>
+      <div><h5>Regulado:</h5><div class="badge-box">Banco Central do Brasil</div></div>
+      <div><h5>Auditado:</h5><div class="badge-box">PwC</div></div>
+    </div>
+
+    <p class="legal">
+      CNPJ: 84.911.098/0001-29 uma empresa prestadora de serviços, fiscalizada e autorizada pelo Banco Central do Brasil, através do Certificado de Autorização nº 92060028, com funções de comercializar cotas e gestora dos negócios do grupo de consórcio a quem representa ativa ou passivamente, em juízo e fora dele, na defesa dos direitos e interesses coletivamente considerados, e para a execução do presente Contrato, elaborado de conformidade com a Lei 11.795, de 08 de outubro de 2008, Circular 3432/09, editada pelo Banco Central do Brasil e o Código de Defesa do Consumidor.
+      <strong>A Ademicon não comercializa cotas com data certa para contemplação ou contempladas.</strong>
+    </p>
+  </div>
+</footer>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.8 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7 0-5.9 4.8-10.7 10.8-10.7S26.8 10.1 26.8 16 22 26.6 16 26.6zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.4 3.7 5.8 5.1.8.4 1.4.6 1.9.7.8.3 1.6.2 2.1.1.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+/* ===== CONFIG: WhatsApp do consultor (somente números, com DDI) ===== */
+var WHATSAPP = "5511984083985"; /* Rafael Dernichanian Calegari */
+
+/* ---------- Simulador ---------- */
+var FAIXAS = {
+  credito: { min: 80000, max: 1273442.29, inicial: 676721.15, step: 0.01, label: "Escolha o valor do crédito:" },
+  parcela: { min: 500,   max: 12000,      inicial: 3500,      step: 10, label: "Escolha o valor da parcela:" }
+};
+var modo = "credito";
+var slider     = document.getElementById("slider");
+var valorTexto = document.getElementById("valorTexto");
+var lblValor   = document.getElementById("lblValor");
+var minTxt     = document.getElementById("minTxt");
+var maxTxt     = document.getElementById("maxTxt");
+
+function brl(n){
+  return n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function pintaSlider(){
+  var pct = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+  slider.style.background = "linear-gradient(90deg,#EE3124 0%,#EE3124 " + pct + "%,#eee " + pct + "%,#eee 100%)";
+}
+function render(){
+  var partes = brl(parseFloat(slider.value)).split(",");
+  valorTexto.innerHTML = "<small>R$</small> " + partes[0] + "<small>," + partes[1] + "</small>";
+  pintaSlider();
+}
+function aplicaModo(novo){
+  modo = novo;
+  var f = FAIXAS[modo];
+  slider.min = f.min; slider.max = f.max; slider.step = f.step; slider.value = f.inicial;
+  lblValor.textContent = f.label;
+  minTxt.textContent = "R$ " + brl(f.min);
+  maxTxt.textContent = "R$ " + brl(f.max);
+  render();
+}
+slider.addEventListener("input", render);
+
+document.getElementById("toggle").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-modo]");
+  if(!b) return;
+  this.querySelectorAll("button").forEach(function(x){ x.classList.remove("on"); });
+  b.classList.add("on");
+  aplicaModo(b.dataset.modo);
+});
+
+document.getElementById("simulador").addEventListener("submit", function(e){
+  e.preventDefault();
+  var sel = document.getElementById("segmento");
+  if(!sel.value){ sel.focus(); sel.reportValidity && sel.reportValidity(); return; }
+  var seg  = sel.value;
+  var tipo = modo === "credito" ? "crédito" : "parcela";
+  var msg  = "Olá! Vim pela página e quero simular um consórcio de " + seg +
+             " com " + tipo + " de R$ " + brl(parseFloat(slider.value)) + ".";
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg), "_blank");
+});
+
+/* ---------- Tabs de segmento ---------- */
+var CONTEUDO = {
+  imoveis: {
+    titulo: "Consórcio de Imóveis",
+    texto: "A Ademicon é pioneira no consórcio de imóveis no Brasil. Essa é a forma mais inteligente para quem deseja comprar, construir, reformar, investir, quitar financiamento ou saldo devedor de imóvel na planta. Ainda é possível planejar uma aposentadoria imobiliária e garantir renda extra por meio da locação de imóveis adquiridos com o consórcio.",
+    usos: [
+      ["Casa",                     "M4 20V10l8-6 8 6v10M9 20v-6h6v6"],
+      ["Apartamento",              "M4 21V4h10v17M14 10h6v11M7 8h1M11 8h1M7 12h1M11 12h1M7 16h1M11 16h1M17 14h1M17 18h1"],
+      ["Sala comercial",           "M3 21h18M5 21V7l7-4 7 4v14M9 11h2M13 11h2M9 15h2M13 15h2"],
+      ["Aposentadoria Imobiliária","M5 21V9l7-5 7 5v12M9 21v-5h6v5"],
+      ["Reforma / Construção",     "M3 17h18M6 17v-5l6-4 6 4v5M9 21h6M10 12h4"]
+    ]
+  },
+  veiculos: {
+    titulo: "Consórcio de Veículos",
+    texto: "Com o consórcio de veículos você planeja a compra do seu carro, moto, caminhão ou do maquinário da sua empresa, sem entrada obrigatória e sem juros. O crédito serve para comprar novo ou seminovo e ainda te coloca na posição de comprador à vista na hora de negociar.",
+    usos: [
+      ["Carro novo ou seminovo",   "M3 16v-3l2-5h14l2 5v3M6 16h12M7 16v2M17 16v2M7 12h1M16 12h1"],
+      ["Moto",                     "M5 17a2.5 2.5 0 1 0 0-.01M19 17a2.5 2.5 0 1 0 0-.01M8 17h8l-3-6h4M11 11 9 8H6"],
+      ["Caminhão",                 "M2 16V7h11v9M13 10h4l3 3v3M6 18a2 2 0 1 0 0-.01M17 18a2 2 0 1 0 0-.01"],
+      ["Máquinas e equipamentos",  "M3 18h14M5 18v-4h8v4M13 14l5-6h2M7 18v-8M4 10h6"],
+      ["Frota empresarial",        "M2 15V9h9v6M11 11h4l3 3v1M5 17a2 2 0 1 0 0-.01M16 17a2 2 0 1 0 0-.01"]
+    ]
+  },
+  servicos: {
+    titulo: "Consórcio de Serviços",
+    texto: "O consórcio de serviços planeja aquilo que não é bem material: a festa de casamento, o intercâmbio, a faculdade, o tratamento de saúde ou a viagem em família. Você se organiza, paga sem juros e contrata o fornecedor que quiser quando for contemplado.",
+    usos: [
+      ["Viagens",                  "M2 16h20M6 16 4 9l3 1 2-4 2 4 3-1-2 7M8 19h8"],
+      ["Casamento",                "M12 21s-7-4.5-7-9a3.5 3.5 0 0 1 7-1.5A3.5 3.5 0 0 1 19 12c0 4.5-7 9-7 9z"],
+      ["Educação e intercâmbio",   "M12 5 2 9l10 4 10-4-10-4zM6 12v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"],
+      ["Saúde e estética",         "M9 4h6v5h5v6h-5v5H9v-5H4V9h5V4z"],
+      ["Reformas e projetos",      "M3 17h18M6 17v-5l6-4 6 4v5M9 21h6M10 12h4"]
+    ]
+  }
+};
+
+var elTitulo = document.getElementById("tabTitulo");
+var elTexto  = document.getElementById("tabTexto");
+var elUsos   = document.getElementById("usos");
+
+function pintaTab(chave){
+  var c = CONTEUDO[chave];
+  elTitulo.textContent = c.titulo;
+  elTexto.textContent  = c.texto;
+  elUsos.innerHTML = c.usos.map(function(u){
+    return '<div class="uso"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="' + u[1] + '"/></svg><span>' + u[0] + '</span></div>';
+  }).join("");
+}
+
+document.getElementById("tabs").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-tab]");
+  if(!b) return;
+  this.querySelectorAll("button").forEach(function(x){ x.classList.remove("on"); });
+  b.classList.add("on");
+  pintaTab(b.dataset.tab);
+});
+
+/* ---------- Init ---------- */
+document.getElementById("waFloat").href =
+  "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Olá! Vim pela página e quero saber mais sobre o consórcio.");
+aplicaModo("credito");
+pintaTab("imoveis");
+</script>
+</body>
+</html>
